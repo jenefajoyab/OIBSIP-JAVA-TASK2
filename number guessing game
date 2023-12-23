@@ -1,0 +1,50 @@
+import java.util.Scanner;
+public class Main {
+	public static void
+	guessingNumberGame()
+	{
+		Scanner sc = new Scanner(System.in);
+		int number = 1 + (int)(100* Math.random());
+		System.out.println("Choose level");
+		System.out.println("lvl 1=10 trials \nlvl 2=5trials");
+		System.out.println("Choose lvl");
+		int level=sc.nextInt();
+		int trials=0;
+		switch(level){
+		 case 1:   
+		    trials = 10;
+		    break;
+		 case 2:
+		     trials=5;
+		     break;
+		 default:
+		     System.out.println("Enter valid choice");
+		}
+        int i, guess;
+      	System.out.println("A number is chosen"+ " between 1 to 100."+ "Guess the number"+ " within "+trials+ " trials.");
+		for (i = 0; i < trials; i++) {
+            System.out.println("Guess the number:");
+             guess = sc.nextInt();
+			if (number == guess) {
+				System.out.println("Congratulations!"+ " You guessed the number.");
+				break;
+			}
+			else if (number > guess&& i != trials - 1) {
+				System.out.println("The number is "+ "greater than " + guess);
+			}
+			else if (number < guess && i != trials - 1) {
+				System.out.println("The number is"+ " less than " + guess);
+			}
+		}
+
+		if (i == trials) {
+			System.out.println("You have exhausted"+ " K trials.");
+            System.out.println("The number was " + number);
+		}
+	}
+
+	public static void main(String arg[])
+	{
+		guessingNumberGame();
+	}
+}
